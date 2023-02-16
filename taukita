@@ -1,0 +1,30 @@
+f=open("chetotam.txt")
+f=f.readlines()
+a=f[0].split()
+b=['']*len(a)
+c=['']*len(a)
+w=1
+for i in range (len(a)):
+    l=''
+    q=0
+    while(len(l)!=len(a[i])):
+        if q==0:
+            l+=a[i][int(len(a[i])/2)]
+        else:
+            l+=a[i][int(len(a[i])/2-q)]
+            if (len(l)==len(a[i])):
+                break
+            l+=a[i][int(len(a[i])/2+q)]
+        q+=1
+    b[i]=l
+for u in range (len(c)):
+    if u==0:
+        c[u]=b[len(b)//2]
+    else:
+        if u%2!=0:
+            c[u]=b[(len(b)//2)-w]
+        else:
+            c[u]=b[len(b)//2+w]
+            w+=1
+for b in c:
+    print(b,end=" ")
